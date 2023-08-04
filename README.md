@@ -2,10 +2,15 @@
 
 This repository contains a collection of useful PowerShell scripts for managing Active Directory Domain Services (ADDS). These scripts are designed to simplify common administrative tasks and improve efficiency when working with ADDS.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-![PowerShell Badge](https://img.shields.io/badge/PowerShell-grey?style=flat&logo=powershell&logoColor=white&labelColor=grey&color=%235391FE)
+<div align="center">
 
+![PowerShell Badge](<https://img.shields.io/badge/PowerShell-grey?logo=powershell&logoColor=white&labelColor=grey&color=%235391FE>)
+[![License: MIT](<https://img.shields.io/github/license/danielfeitopin/ADDS-Management-Scripts>)](LICENSE "License")
+[![GitHub issues](https://img.shields.io/github/issues/danielfeitopin/ADDS-Management-Scripts)](<https://github.com/danielfeitopin/ADDS-Management-Scripts/issues> "Issues")
+[![GitHub forks](https://img.shields.io/github/forks/danielfeitopin/ADDS-Management-Scripts)](<https://github.com/danielfeitopin/ADDS-Management-Scripts/fork> "Forks")
+![GitHub stars](https://img.shields.io/github/stars/danielfeitopin/ADDS-Management-Scripts)
 
+</div>
 
 ## Table of Contents
 
