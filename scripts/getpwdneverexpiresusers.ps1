@@ -1,32 +1,20 @@
+param(
+    $headerUserName = "Username",
+    $headerUserPrincipalName = "User Principal Name"
+)
+
 # Import the Active Directory module
-Import-Module ActiveDirectory
-
-# Get a list of all user objects in Active Directory
-$users = Get-ADUser -Filter * -Properties PasswordNeverExpires
-
-# Filter users with "PasswordNeverExpires" option enabled
-$usersWithPasswordNeverExpires = $users | Where-Object { $_.PasswordNeverExpires }
-
-# Create an array to store the data for CSV
-$csvData = @()
-
-# Add the users with "PasswordNeverExpires" enabled to the array
-$usersWithPasswordNeverExpires | ForEach-Object {
-    $userName = $_.SamAccountName
-    $userPrincipalName = $_.UserPrincipalName
-    
-    # Create a custom object to hold user information
-    $userObject = New-Object PSObject -Property @{
-        "Username" = $userName
-        "UserPrincipalName" = $userPrincipalName
-    }
-    
-    # Add the custom object to the CSV data array
-    $csvData += $userObject
+try {
+    Import-Module ActiveDirectory -ErrorAction Stop
+}
+catch {
+    Write-Host "[ERROR] Could not import module: 'ActiveDirectory'."
+    exit 1
 }
 
-# Export the CSV data to a CSV file
-$outputFile = "UsersWithPasswordNeverExpires.csv"
-$csvData | Export-Csv -Path $outputFile -NoTypeInformation
-
-Write-Host "The file '$outputFile' has been generated with the list of users whose passwords never expire in CSV format."
+# Get the list of all users in Active Directory with "PasswordNeverExpires" option enabled
+$users = Get-ADUser -Filter { PasswordNeverExpires -eq $true } -Properties PasswordNeverExpires
+Write-Output "$headerUserName, $headerUserPrincipalName"
+foreach ($user in $users) {
+    Write-Output "$user.SamAccountName, $user.UserPrincipalName"
+}
