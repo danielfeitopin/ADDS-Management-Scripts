@@ -31,6 +31,7 @@ Active Directory Domain Services (ADDS) is a powerful directory service used to 
 
 - `getdisconnectedcomputers.ps1`: Returns a list of computers that have not connected since a specified number of days and their last logon date.
 - `getpwdneverexpiresusers.ps1`: Returns a list of users who have the "Password Never Expires" option checked.
+- `removedisconnectedcomputers.ps1`: Removes computers from Active Directory. This script can use the output of `getdisconnectedcomputers.ps1` as input through the pipeline. Also, it provides additional info that can be saved to a file with the `-logFile` parameter.
 
 ## Prerequisites
 
