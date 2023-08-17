@@ -20,5 +20,5 @@ $limitDate = (Get-Date).AddDays(-$limitDays)
 $computers = Get-ADComputer -Filter { LastLogonDate -lt $limitDate } -Properties LastLogonDate
 Write-Output "$headerComputerName, $headerLastLogonDate"
 foreach ($computer in $computers) {
-    Write-Output "$computer.Name, $computer.LastLogonDate"
+    Write-Output "$($computer.Name), $($computer.LastLogonDate)"
 }
